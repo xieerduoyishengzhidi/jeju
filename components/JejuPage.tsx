@@ -41,7 +41,8 @@ const ASSETS = {
   guide2: "/guide2-jia.jpg", // 小贾的照片
   qrGua: "/qr-gua.png", // 呱呱的二维码
   qrJia: "/qr-jia.jpg", // 小贾的二维码
-  qr: "/qr-gua.png" // Footer中的二维码（默认使用呱呱的）
+  qr: "/qr-gua.png", // Footer中的二维码（默认使用呱呱的）
+  all: "/all.png" // 咨询报名二维码
 };
 
 const ITINERARY: ItineraryItem[] = [
@@ -472,12 +473,12 @@ const JejuPage: React.FC = () => {
                         <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程交通</li>
                         <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 偶来护照一本</li>
                      </ul>
-                     <button 
-                       onClick={() => setPreviewImage(ASSETS.qr)}
-                       className="w-full bg-jeju-charcoal text-jeju-bg py-4 font-bold text-lg rounded border-2 border-jeju-bg hover:bg-jeju-teal transition-colors flex items-center justify-center gap-2"
-                     >
+                      <button 
+                        onClick={() => setPreviewImage(ASSETS.all)}
+                        className="w-full bg-jeju-charcoal text-jeju-bg py-4 font-bold text-lg rounded border-2 border-jeju-bg hover:bg-jeju-teal transition-colors flex items-center justify-center gap-2"
+                      >
                         咨询报名 <ArrowRight className="w-5 h-5" />
-                     </button>
+                      </button>
                   </div>
                </Reveal>
             </div>
