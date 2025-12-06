@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu, X, MapPin, Calendar, Camera, 
@@ -38,7 +39,9 @@ const ASSETS = {
   
   guide1: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400&q=80", // Male guide avatar
   guide2: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80", // Female guide avatar
-  qr: "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=WeChat-Contact" // Generated QR
+  
+  // QR Code - Increased size for lightbox view
+  qr: "https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=WeChat-Contact" 
 };
 
 const ITINERARY: ItineraryItem[] = [
@@ -472,7 +475,10 @@ const JejuPage: React.FC = () => {
                         <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程交通</li>
                         <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 偶来护照一本</li>
                      </ul>
-                     <button className="w-full bg-jeju-charcoal text-jeju-bg py-4 font-bold text-lg rounded border-2 border-jeju-bg hover:bg-jeju-teal transition-colors flex items-center justify-center gap-2">
+                     <button 
+                       onClick={() => setPreviewImage(ASSETS.qr)}
+                       className="w-full bg-jeju-charcoal text-jeju-bg py-4 font-bold text-lg rounded border-2 border-jeju-bg hover:bg-jeju-teal transition-colors flex items-center justify-center gap-2"
+                     >
                         咨询报名 <ArrowRight className="w-5 h-5" />
                      </button>
                   </div>
