@@ -12,33 +12,35 @@ const ASSETS = {
   // Replaced broken 302.ai links with stable Unsplash images matching the Jeju/Vintage theme
   
   // Hero: Coastal Cliff / Ocean with vintage vibe
-  hero: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80", 
+  hero: "/hero-image.jpg", 
   
-  // Highlight 2 (Small): Hiker/Walking (Olle Trail vibe)
-  highlight1: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80", 
+  // Highlight 2 (Small): Hiker/Walking (Olle Trail vibe) - Backpacker image
+  highlight1: "/highlight1-olle-backpacker.jpg", 
   
-  // Highlight 1 (Big): Udo Island / Lighthouse / Blue Ocean
-  highlight2: "https://images.unsplash.com/photo-1504700610630-ac6aba3536d3?auto=format&fit=crop&w=1200&q=80", 
+  // Highlight 1 (Big): Udo Island / Lighthouse / Blue Ocean - Cliff image
+  highlight2: "/highlight2-udo-cliff.jpg", 
   
-  // Highlight 3 (Wide): Vintage Christmas / Cozy
-  highlight3: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=1200&q=80", 
+  // Highlight 3 (Wide): Vintage Christmas / Cozy - Nutcracker window
+  highlight3: "/highlight3-xmas-nutcracker.jpg", 
   
   // Itinerary Images
-  // Day 0: Cozy/Relaxing Arrival (Greenery)
-  day0: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80", 
+  // Day 0: Cozy/Relaxing Arrival (Greenery) - Green mossy beach
+  day0: "/day0-green-mossy-beach.jpg", 
   
-  // Day 1: Deep Blue Ocean Texture
-  day1: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=800&q=80", 
+  // Day 1: Deep Blue Ocean Texture - Blue boat wake
+  day1: "/day1-blue-boat-wake.jpg", 
   
-  // Day 2: Christmas/Festive House or Village
-  day2: "https://images.unsplash.com/photo-1576919228236-a097c32a58be?auto=format&fit=crop&w=800&q=80", 
+  // Day 2: Christmas/Festive House or Village - Christmas house
+  day2: "/day2-christmas-house.jpg", 
   
-  // Day 3: Stone Path / Farewell
-  day3: "https://images.unsplash.com/photo-1494451733671-55db00085a67?auto=format&fit=crop&w=800&q=80", 
+  // Day 3: Stone Path / Farewell - Stone path
+  day3: "/day3-stone-path.jpg", 
   
-  guide1: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=400&q=80", // Male guide avatar
-  guide2: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80", // Female guide avatar
-  qr: "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=WeChat-Contact" // Generated QR
+  guide1: "/guide1-gua.jpg", // 呱呱的照片
+  guide2: "/guide2-jia.jpg", // 小贾的照片
+  qrGua: "/qr-gua.png", // 呱呱的二维码
+  qrJia: "/qr-jia.jpg", // 小贾的二维码
+  qr: "/qr-gua.png" // Footer中的二维码（默认使用呱呱的）
 };
 
 const ITINERARY: ItineraryItem[] = [
@@ -420,8 +422,8 @@ const JejuPage: React.FC = () => {
                   </Reveal>
                   <div className="space-y-8">
                     {[
-                      { name: "呱呱", role: "岛屿探险家", desc: "熟悉每一条偶来小路，知道哪里风最小，哪里橘子最甜。", img: ASSETS.guide1 },
-                      { name: "小贾", role: "生活方式主理人", desc: "寻找最出片的橘子园，为你的胶片相机寻找最佳光影。", img: ASSETS.guide2 }
+                      { name: "呱呱", role: "岛屿探险家", desc: "熟悉每一条偶来小路，知道哪里风最小，哪里橘子最甜。", img: ASSETS.guide1, qr: ASSETS.qrGua },
+                      { name: "小贾", role: "生活方式主理人", desc: "寻找最出片的橘子园，为你的胶片相机寻找最佳光影。", img: ASSETS.guide2, qr: ASSETS.qrJia }
                     ].map((guide, i) => (
                       <Reveal key={i} delay={i * 200}>
                         <div className="flex items-stretch gap-6 bg-jeju-bg p-4 rounded-lg border border-jeju-charcoal shadow-md relative overflow-hidden group">
@@ -436,13 +438,10 @@ const JejuPage: React.FC = () => {
                               <p className="text-xs text-jeju-charcoal/70">{guide.desc}</p>
                            </div>
 
-                           {/* QR Code Placeholder Slot - More Distinct */}
+                           {/* QR Code */}
                            <div className="w-20 flex flex-col items-center justify-center border-l-2 border-dashed border-jeju-charcoal/20 pl-4 bg-jeju-mustard/5">
-                              <div className="w-14 h-14 bg-white border border-jeju-charcoal/30 flex items-center justify-center rounded shadow-sm relative group-hover:scale-105 transition-transform">
-                                 <QrCode className="w-8 h-8 text-jeju-charcoal/20" />
-                                 <div className="absolute inset-0 flex items-center justify-center text-[8px] text-jeju-charcoal/40 font-mono">
-                                    SCAN ME
-                                 </div>
+                              <div className="w-14 h-14 bg-white border border-jeju-charcoal/30 flex items-center justify-center rounded shadow-sm relative group-hover:scale-105 transition-transform overflow-hidden">
+                                 <img src={guide.qr} className="w-full h-full object-cover" alt={`${guide.name}的二维码`} />
                               </div>
                            </div>
 
