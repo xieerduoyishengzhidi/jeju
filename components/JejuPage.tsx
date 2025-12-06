@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu, X, MapPin, Calendar, Camera, 
@@ -463,16 +464,18 @@ const JejuPage: React.FC = () => {
                      </h2>
                      <div className="text-center mb-8">
                         <span className="text-sm line-through text-jeju-charcoal/50 mr-2">¥4,599</span>
-                        <span className="text-5xl font-black text-jeju-charcoal">¥3,xxx</span>
+                        <span className="text-5xl font-black text-jeju-charcoal">¥999</span>
                         <span className="text-sm font-bold block mt-2 text-jeju-charcoal/70">/ 人 (不含机票)</span>
                      </div>
                      <ul className="space-y-3 mb-8 text-sm font-medium text-jeju-charcoal/80">
-                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程包车接送服务</li>
-                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 牛岛往返船票 + 环岛巴士/骑行</li>
+                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程民宿住宿</li>
+                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程交通</li>
                         <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 偶来护照一本</li>
-                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程专业摄影跟拍 + 修图</li>
                      </ul>
-                     <button className="w-full bg-jeju-charcoal text-jeju-bg py-4 font-bold text-lg rounded border-2 border-jeju-bg hover:bg-jeju-teal transition-colors flex items-center justify-center gap-2">
+                     <button 
+                       onClick={() => setPreviewImage(ASSETS.qr)}
+                       className="w-full bg-jeju-charcoal text-jeju-bg py-4 font-bold text-lg rounded border-2 border-jeju-bg hover:bg-jeju-teal transition-colors flex items-center justify-center gap-2"
+                     >
                         咨询报名 <ArrowRight className="w-5 h-5" />
                      </button>
                   </div>
