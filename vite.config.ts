@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      base: '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
@@ -13,12 +14,15 @@ export default defineConfig(({ mode }) => {
         outDir: 'dist',
         assetsDir: 'assets',
         sourcemap: false,
+        rollupOptions: {
+          output: {
+            manualChunks: undefined,
+          },
+        },
       },
       plugins: [react()],
-      define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
-      },
+      // Vite automatically handles import.meta.env, no need to define here
+      // Environment variables prefixed with VITE_ will be available via import.meta.env
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
