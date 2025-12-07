@@ -16,23 +16,23 @@ const ASSETS = {
   hero: "/hero-image.jpg", 
   
   // Highlight 2 (Small): Hiker/Walking (Olle Trail vibe) - Backpacker image
-  highlight1: "/highlight1-olle-backpacker.jpg", 
+  highlight1: "/day2-christmas-house.jpg", 
   
   // Highlight 1 (Big): Udo Island / Lighthouse / Blue Ocean - Cliff image
   highlight2: "/highlight2-udo-cliff.jpg", 
   
   // Highlight 3 (Wide): Vintage Christmas / Cozy - Nutcracker window
-  highlight3: "/highlight3-xmas-nutcracker.jpg", 
+  highlight3: "/day1-blue-boat-wake.jpg", 
   
   // Itinerary Images
   // Day 0: Cozy/Relaxing Arrival (Greenery) - Green mossy beach
   day0: "/day0-green-mossy-beach.jpg", 
   
   // Day 1: Deep Blue Ocean Texture - Blue boat wake
-  day1: "/day1-blue-boat-wake.jpg", 
+  day1: "/highlight3-xmas-nutcracker.jpg", 
   
   // Day 2: Christmas/Festive House or Village - Christmas house
-  day2: "/day2-christmas-house.jpg", 
+  day2: "/highlight1-olle-backpacker.jpg", 
   
   // Day 3: Stone Path / Farewell - Stone path
   day3: "/day3-stone-path.jpg", 
@@ -469,9 +469,9 @@ const JejuPage: React.FC = () => {
                         <span className="text-sm font-bold block mt-2 text-jeju-charcoal/70">/ 人 (不含机票)</span>
                      </div>
                      <ul className="space-y-3 mb-8 text-sm font-medium text-jeju-charcoal/80">
-                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程民宿住宿</li>
-                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程交通</li>
-                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 偶来护照一本</li>
+                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> day0,1,2民宿住宿</li>
+                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 全程交通（包含打车费用和轮渡费用）</li>
+                        <li className="flex items-center gap-2"><div className="w-2 h-2 bg-jeju-charcoal rounded-full"></div> 偶来护照一本（打卡盖章徒步路线）</li>
                      </ul>
                       <button 
                         onClick={() => setPreviewImage(ASSETS.all)}
